@@ -20,6 +20,25 @@ export default function Home() {
       setSuggestions(gamesDetails);
     }
   };
+  const sortFromWorstToBest = () => {
+    const sortedArr = [...suggestions];
+    sortedArr.sort(
+      (a, b) =>
+        a.MarketProperties[0].UsageData[2].AverageRating -
+        b.MarketProperties[0].UsageData[2].AverageRating
+    );
+    setSuggestions(sortedArr);
+  };
+
+  const sortFromBestToWorst = () => {
+    const sortedArr = [...suggestions];
+    sortedArr.sort(
+      (a, b) =>
+        b.MarketProperties[0].UsageData[2].AverageRating -
+        a.MarketProperties[0].UsageData[2].AverageRating
+    );
+    setSuggestions(sortedArr);
+  };
   useEffect(() => {
     if (gameIDs.length < 1) {
       return;
@@ -64,8 +83,12 @@ export default function Home() {
           <div>
             <div className="controls">
               <div className="buttons">
-                <a className="link">Top rated</a>
-                <a className="link">Worst rated</a>
+                <a className="link" onClick={sortFromBestToWorst}>
+                  Top rated
+                </a>
+                <a className="link" onClick={sortFromWorstToBest}>
+                  Worst rated
+                </a>
               </div>
               <input
                 type="search"

@@ -2,15 +2,24 @@ import Image from "next/image";
 
 export const GameItem = ({ details }) => {
   return (
-    <div className="group relative shadow-xl ">
-      <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 transition-all group-hover:scale-105 lg:h-80 lg:aspect-none rounded-md">
-        <Image
-          src={`https:${details.LocalizedProperties[0].Images[0].Uri}`}
-          alt="Front of men&#039;s Basic Tee in black."
-          className="w-full h-full object-center object-cover lg:w-full lg:h-full rounded-md"
-          layout="fill"
-        />
+    <li className="games__item">
+      <Image
+        src={`https:${details.LocalizedProperties[0].Images[0].Uri}`}
+        alt={details.LocalizedProperties[0].ProductTitle}
+        layout="responsive"
+        className="games__image"
+        width={100}
+        height={100}
+      />
+      <div className="games__overlay">
+        <div className="games__name">
+          {details.LocalizedProperties[0].ProductTitle}
+        </div>
+        <div className="games__rating">
+          Average rating:{" "}
+          {details.MarketProperties[0].UsageData[2].AverageRating} / 5
+        </div>
       </div>
-    </div>
+    </li>
   );
 };

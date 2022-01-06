@@ -62,15 +62,21 @@ export default function Home() {
         <header className="header">
           <div className="logo">Xbox Game Pass games rated</div>
           <div>
-            <input
-              type="search"
-              name="search"
-              id="search"
-              className="search-input"
-              value={search}
-              onChange={handleSearch}
-              placeholder="Type name of the game"
-            />
+            <div className="controls">
+              <div className="buttons">
+                <a className="link">Top rated</a>
+                <a className="link">Worst rated</a>
+              </div>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                className="search-input"
+                value={search}
+                onChange={handleSearch}
+                placeholder="Type name of the game"
+              />
+            </div>
           </div>
         </header>
         <div className="games">

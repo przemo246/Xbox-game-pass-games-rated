@@ -1,4 +1,69 @@
-.games-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.logo {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  &::before {
+    content: "X";
+    color: #32cd322b;
+    font-size: 5rem;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 2%;
+    font-weight: 400;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.games {
+  padding: 0 2rem;
+  &__name {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+  &__rating {
+    font-size: 1.4rem;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+  }
+  &__item {
+    position: relative;
+  }
+  &__overlay {
+    height: 20%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.search-input {
+  font-family: inherit;
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  border: none;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

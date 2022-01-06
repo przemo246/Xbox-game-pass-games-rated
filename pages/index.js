@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </header>
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {gamesDetails.length < 1 ? (
+          {gamesDetails.length > 0 ? (
             gamesDetails.map((el) => (
               <GameItem key={el.ProductId} details={el} />
             ))

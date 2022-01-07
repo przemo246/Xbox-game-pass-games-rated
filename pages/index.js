@@ -104,15 +104,18 @@ export default function Home() {
         </header>
         <div className="games">
           <ul className="games__list">
-            {suggestions.length > 0 ? (
+            {suggestions.length < 1 && search.length < 1 ? (
+              <div className="center-wrapper">
+                <Loader type="Circles" color="#00BFFF" height={80} width={80} />
+              </div>
+            ) : (
               suggestions.map((el) => (
                 <GameItem key={el.ProductId} details={el} />
               ))
-            ) : (
-              <div className="loader-wrapper">
-                <Loader type="Circles" color="#00BFFF" height={80} width={80} />
-              </div>
             )}
+            {suggestions.length < 1 && search.length > 0 ? (
+              <div className="center-wrapper">No results found</div>
+            ) : null}
           </ul>
         </div>
       </main>

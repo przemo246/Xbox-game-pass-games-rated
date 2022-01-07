@@ -1,3 +1,7 @@
+.app-wrapper {
+  position: relative;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -100,4 +104,23 @@
       transform: scaleX(1);
     }
   }
+}
+
+.go-up {
+  cursor: pointer;
+  padding: 1px;
+  position: fixed;
+  top: 95%;
+  right: 1%;
+  background-color: #fff;
+  color: #333;
+  width: 5rem;
+  height: 5rem;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

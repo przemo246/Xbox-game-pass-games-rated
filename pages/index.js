@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { GameItem } from "./components/GameItem";
 import Loader from "react-loader-spinner";
+import { BsArrowUpShort } from "react-icons/bs";
 
 export default function Home() {
   const [gameIDs, setGameIds] = useState("");
@@ -78,7 +79,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <header className="header">
+        <header id="top" className="header">
           <div className="logo">Xbox Game Pass games rated</div>
           <div>
             <div className="controls">
@@ -119,6 +120,9 @@ export default function Home() {
           </ul>
         </div>
       </main>
+      <a href="#top" className="go-up">
+        <BsArrowUpShort size="2.5em" />
+      </a>
     </div>
   );
 }

@@ -9,6 +9,7 @@ export default function Home() {
   const [gamesDetails, setGamesDetails] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [search, setSearch] = useState("");
+  const [isGoToTopButtonVisible, setIsGoToTopButtonVisible] = useState(false);
   const handleSearch = (e) => {
     const { value } = e.target;
     setSearch(value);
@@ -29,6 +30,11 @@ export default function Home() {
         b.MarketProperties[0].UsageData[2].AverageRating
     );
     setSuggestions(sortedArr);
+  };
+
+  const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   };
 
   const sortFromBestToWorst = () => {
@@ -57,6 +63,20 @@ export default function Home() {
     }
     getGamesDetails();
   }, [gameIDs]);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        setIsGoToTopButtonVisible(true);
+      } else {
+        setIsGoToTopButtonVisible(false);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     async function getGameIDs() {
       try {
@@ -71,6 +91,7 @@ export default function Home() {
     }
     getGameIDs();
   }, []);
+
   return (
     <div className="app-wrapper">
       <Head>
@@ -99,7 +120,7 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className="main">
-        <header id="top" className="header">
+        <header className="header">
           <div className="logo">Xbox Game Pass games rated</div>
           <div>
             <div className="controls">
@@ -140,7 +161,11 @@ export default function Home() {
           </ul>
         </div>
       </main>
-      <a href="#top" className="go-up">
+      <a
+        onClick={scrollToTop}
+        className="go-up"
+        style={{ display: isGoToTopButtonVisible ? "flex" : "none" }}
+      >
         <BsArrowUpShort size="2.5em" />
       </a>
     </div>

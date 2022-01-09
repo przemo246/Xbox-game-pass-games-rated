@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const GameItem = ({ details }) => {
+const GameItem = ({ details }) => {
   return (
     <li className="games__item">
       <Image
@@ -23,3 +23,5 @@ export const GameItem = ({ details }) => {
     </li>
   );
 };
+
+export default GameItem;

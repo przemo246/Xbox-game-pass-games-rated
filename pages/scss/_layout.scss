@@ -92,6 +92,11 @@
   border: 1px solid #fff;
   padding: 0.8rem;
   text-align: center;
+  transition: all 0.2s;
+  &:hover {
+    background-color: #fff;
+    color: rgb(17, 24, 39);
+  }
   @media screen and (max-width: 720px) {
     margin-bottom: 0.3rem;
   }

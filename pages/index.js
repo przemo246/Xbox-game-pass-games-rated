@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import GameItem from "./components/GameItem";
+import GameItem from "../components/GameItem";
 import Loader from "react-loader-spinner";
 import { BsArrowUpShort } from "react-icons/bs";
 
